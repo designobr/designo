@@ -177,36 +177,8 @@ nav {
   box-shadow: 0 10px 20px rgba(59,130,246,0.3);
 }
 
-/* Footer */
-footer {
-  background: var(--primary);
-  color: white;
-  padding: 100px 0;
-  margin-top: 100px;
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 4rem;
-}
-
-.footer-grid h3 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  font-weight: 800;
-}
-
-.footer-grid h4 {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  color: var(--accent);
-}
-
-.social-links {
-  display: flex;
-  gap: 1.5rem;
-  margin-top: 2rem;
+.cta-button[href*="wa.me"]:hover {
+  background: #128C7E !important;
 }
 
 /* Modal styles */
@@ -217,72 +189,57 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0);
   z-index: 2000;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
 }
 
 .modal.active {
   display: flex;
   opacity: 1;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
   background: white;
-  padding: 2rem; /* Updated */
+  padding: 2rem;
   border-radius: 20px;
-  max-width: 500px; /* Updated */
+  max-width: 500px;
   width: 90%;
   margin: auto;
   position: relative;
-  transform: translateY(-50px);
-  transition: transform 0.3s ease;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  transform: scale(0.8);
+  opacity: 0;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal.active .modal-content {
-  transform: translateY(0);
+  transform: scale(1);
+  opacity: 1;
 }
 
-.modal-content h3 {
-  font-size: 2rem; /* Updated */
-  margin-bottom: 1rem; /* Updated */
-  color: var(--primary);
-  font-weight: 800;
+/* Floating Squares */
+.floating-square {
+  position: fixed;
+  pointer-events: none;
+  width: 10px;
+  height: 10px;
+  background: rgba(96, 165, 250, 0.3);
+  animation: float 3s ease-out forwards;
+  z-index: 2001;
 }
 
-.modal-content p {
-  font-size: 1rem; /* Updated */
-  margin-bottom: 1.5rem; /* Updated */
-  color: var(--gray);
-}
-
-.modal-content ul {
-  margin-bottom: 1.5rem; /* Updated */
-  padding-left: 1.5rem;
-}
-
-.modal-content ul li {
-  margin-bottom: 0.5rem; /* Updated */
-  font-size: 1rem; /* Updated */
-  color: var(--gray);
-}
-
-.close-modal {
-  position: absolute;
-  top: 1rem; /* Updated */
-  right: 1rem; /* Updated */
-  font-size: 1.5rem; /* Updated */
-  cursor: pointer;
-  border: none;
-  background: none;
-  color: var(--gray);
-  transition: color 0.3s ease;
-}
-
-.close-modal:hover {
-  color: var(--primary);
+@keyframes float {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--moveX), var(--moveY)) rotate(360deg);
+    opacity: 0;
+  }
 }
 
 @media (max-width: 768px) {
@@ -302,8 +259,50 @@ footer {
     font-size: 2.8rem;
   }
 }
+
+/* Update the CTA button styles in the modal */
+.modal .cta-button {
+  padding: 0.8rem 1.5rem; /* Reduced padding */
+  font-size: 0.9rem; /* Smaller font size */
+  margin-top: 1rem; /* Add some spacing from the content above */
+}
+
+/* Add this to the existing CSS */
+.social-links .cta-button {
+  padding: 0.8rem 1.5rem; /* Reduced padding */
+  font-size: 0.9rem; /* Smaller font size */
+}
+
+/* Updated footer styles */
+footer {
+  padding: 3rem 0;
+  background: #f8faff;
+}
+
+footer h3 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+footer h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+footer p {
+  color: var(--gray);
+  margin-bottom: 1rem;
+}
+
+.social-links {
+  margin-top: 1rem;
+}
 </style>
-<script type="text/javascript" nonce="9d9de267ad29402dbfd4b3df21c" src="//local.adguard.org?ts=1732551823286&amp;type=content-script&amp;dmn=party.websim.ai&amp;url=https%3A%2F%2Fparty.websim.ai%2Fapi%2Fv1%2Fsites%2FlvdZFjyzZSrKxKlyn%2Fhtml&amp;app=com.android.chrome&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=0"></script><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="text/javascript" nonce="9d9de267ad29402dbfd4b3df21c" src="//local.adguard.org?ts=1732551823286&amp;type=content-script&amp;dmn=party.websim.ai&amp;url=https%3A%2F%2Fparty.websim.ai%2Fapi%2Fv1%2Fsites%2F4S4Node1CdxdsftOT%2Fhtml&amp;app=com.android.chrome&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=0"></script><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
@@ -323,7 +322,7 @@ footer {
     <div class="container">
       <h1>Transforme sua presença digital</h1>
       <p>Soluções de marketing digital personalizadas para impulsionar seu negócio ao próximo nível</p>
-      <a href="https://wa.me/5511947968158" class="cta-button">Agende uma Reunião</a>
+      <a href="https://calendly.com/suportedesigno/reuniao-de-apresentacao" class="cta-button">Agende uma Reunião</a>
     </div>
   </section>
 
@@ -364,7 +363,9 @@ footer {
         <li>Análise de métricas e resultados</li>
         <li>Relatórios mensais de performance</li>
       </ul>
-      <a href="https://wa.me/5511947968158" class="cta-button">Fale conosco no WhatsApp</a>
+      <div style="display: flex; justify-content: center;">
+        <a href="https://wa.me/5511947968158" class="cta-button" style="background: #25D366;">WhatsApp</a>
+      </div>
     </div>
   </div>
 
@@ -380,7 +381,9 @@ footer {
         <li>Monitoramento de conversões</li>
         <li>Relatórios detalhados de performance</li>
       </ul>
-      <a href="https://wa.me/5511947968158" class="cta-button">Fale conosco no WhatsApp</a>
+      <div style="display: flex; justify-content: center;">
+        <a href="https://wa.me/5511947968158" class="cta-button" style="background: #25D366;">WhatsApp</a>
+      </div>
     </div>
   </div>
 
@@ -396,7 +399,9 @@ footer {
         <li>Criação de conteúdo otimizado</li>
         <li>Construção de backlinks de qualidade</li>
       </ul>
-      <a href="https://wa.me/5511947968158" class="cta-button">Fale conosco no WhatsApp</a>
+      <div style="display: flex; justify-content: center;">
+        <a href="https://wa.me/5511947968158" class="cta-button" style="background: #25D366;">WhatsApp</a>
+      </div>
     </div>
   </div>
 
@@ -412,12 +417,14 @@ footer {
         <li>Peças publicitárias</li>
         <li>Templates personalizados</li>
       </ul>
-      <a href="https://wa.me/5511947968158" class="cta-button">Fale conosco no WhatsApp</a>
+      <div style="display: flex; justify-content: center;">
+        <a href="https://wa.me/5511947968158" class="cta-button" style="background: #25D366;">WhatsApp</a>
+      </div>
     </div>
   </div>
 
   <footer>
-    <div class="container footer-grid">
+    <div class="container">
       <div>
         <h3>Designo</h3>
         <p>Transformando sua presença digital</p>
@@ -442,7 +449,7 @@ footer {
       });
     });
 
-    // New modal functionality
+    // Updated modal functionality
     const serviceCards = document.querySelectorAll('.service-card');
     const modals = document.querySelectorAll('.modal');
     const closeButtons = document.querySelectorAll('.close-modal');
@@ -454,16 +461,63 @@ footer {
       'design': 'designModal'
     };
 
+    function createFloatingSquares(e) {
+      const numberOfSquares = 15;
+      
+      for (let i = 0; i < numberOfSquares; i++) {
+        const square = document.createElement('div');
+        square.className = 'floating-square';
+        
+        // Random starting position near the click
+        const startX = e.clientX - 5;
+        const startY = e.clientY - 5;
+        
+        // Random movement between -100 and 100 pixels
+        const moveX = (Math.random() - 0.5) * 200;
+        const moveY = (Math.random() - 0.5) * 200;
+        
+        square.style.left = startX + 'px';
+        square.style.top = startY + 'px';
+        square.style.setProperty('--moveX', moveX + 'px');
+        square.style.setProperty('--moveY', moveY + 'px');
+        
+        document.body.appendChild(square);
+        
+        // Remove the square after animation
+        setTimeout(() => {
+          square.remove();
+        }, 3000);
+      }
+    }
+
     serviceCards.forEach(card => {
-      card.addEventListener('click', () => {
+      card.addEventListener('click', (e) => {
         const modalId = modalMap[card.dataset.service];
-        document.getElementById(modalId).classList.add('active');
+        const modal = document.getElementById(modalId);
+        
+        // First show the modal with initial state
+        modal.style.display = 'flex';
+        
+        // Force reflow to enable transition
+        modal.offsetHeight;
+        
+        // Add active class to trigger animation
+        modal.classList.add('active');
+        
+        createFloatingSquares(e);
       });
     });
 
+    // Updated modal closing logic
     closeButtons.forEach(button => {
       button.addEventListener('click', () => {
-        button.closest('.modal').classList.remove('active');
+        const modal = button.closest('.modal');
+        modal.classList.remove('active');
+        
+        // Wait for animation to complete before hiding
+        setTimeout(() => {
+          modal.style.display = 'none';
+        }, 300);
       });
     });
 
@@ -471,6 +525,9 @@ footer {
       modals.forEach(modal => {
         if (e.target === modal) {
           modal.classList.remove('active');
+          setTimeout(() => {
+            modal.style.display = 'none';
+          }, 300);
         }
       });
     });
