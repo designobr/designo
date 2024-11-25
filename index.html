@@ -4,13 +4,17 @@
 <title>Designo - Agência de Marketing Digital</title>
 <style>
 :root {
-  --primary: #111111;
-  --primary-light: #222222;
-  --accent: #60a5fa;
-  --dark: #000000;
+  --primary: #2d3436;
+  --primary-light: #636e72;
+  --accent: #0984e3;
+  --accent-secondary: #00b894;
+  --accent-tertiary: #6c5ce7;
+  --dark: #2d3436;
   --light: #ffffff;
-  --text: #111111;
-  --gray: #666666;
+  --text: #2d3436;
+  --gray: #636e72;
+  --gradient-1: linear-gradient(45deg, #0984e3, #00b894);
+  --gradient-2: linear-gradient(45deg, #6c5ce7, #0984e3);
 }
 
 * {
@@ -52,9 +56,16 @@ nav {
 .logo {
   font-size: 1.8rem;
   font-weight: 800;
-  color: var(--primary);
-  text-transform: uppercase;
-  letter-spacing: -1px;
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.logo:hover {
+  background: var(--gradient-2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .nav-links {
@@ -69,17 +80,35 @@ nav {
   font-size: 1rem;
   transition: color 0.3s ease;
   text-transform: uppercase;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: var(--gradient-1);
+  transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
   color: var(--accent);
 }
 
+.nav-links a:hover::after {
+  width: 100%;
+}
+
 /* Hero Section */
 .hero {
   padding: 200px 0 150px;
-  background: linear-gradient(45deg, #f8faff, #ffffff);
+  background: linear-gradient(135deg, #f6f9ff, #e9f5ff, #f0f2ff);
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .hero h1 {
@@ -88,7 +117,7 @@ nav {
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -2px;
-  background: linear-gradient(45deg, var(--primary), var(--accent));
+  background: var(--gradient-1);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -106,7 +135,7 @@ nav {
 /* Services Section */
 .services {
   padding: 120px 0;
-  background: #f8faff;
+  background: linear-gradient(135deg, #f8faff, #f0f2ff);
 }
 
 .services h2 {
@@ -115,7 +144,7 @@ nav {
   font-size: 3.5rem;
   letter-spacing: -1px;
   font-weight: 800;
-  background: linear-gradient(45deg, var(--primary), var(--accent));
+  background: var(--gradient-2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -131,15 +160,32 @@ nav {
   padding: 3rem;
   border-radius: 20px;
   background: white;
+  border-left: 4px solid transparent;
   transition: all 0.4s ease;
-  border: none;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
   cursor: pointer;
+}
+
+.service-card:nth-child(1) {
+  border-left-color: #0984e3;
+}
+
+.service-card:nth-child(2) {
+  border-left-color: #00b894;
+}
+
+.service-card:nth-child(3) {
+  border-left-color: #6c5ce7;
+}
+
+.service-card:nth-child(4) {
+  border-left-color: #fd79a8;
 }
 
 .service-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  background: linear-gradient(135deg, #ffffff, #f8faff);
 }
 
 .service-card h3 {
@@ -158,7 +204,7 @@ nav {
 .cta-button {
   display: inline-block;
   padding: 1.2rem 2.5rem;
-  background: var(--accent);
+  background: var(--gradient-1);
   color: white;
   text-decoration: none;
   border-radius: 50px;
@@ -169,12 +215,13 @@ nav {
   font-size: 1.1rem;
   text-transform: uppercase;
   letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(9, 132, 227, 0.3);
 }
 
 .cta-button:hover {
-  background: #3b82f6;
+  background: var(--gradient-2);
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(59,130,246,0.3);
+  box-shadow: 0 8px 25px rgba(9, 132, 227, 0.4);
 }
 
 .cta-button[href*="wa.me"]:hover {
@@ -202,7 +249,7 @@ nav {
 }
 
 .modal-content {
-  background: white;
+  background: linear-gradient(135deg, #ffffff, #f8faff);
   padding: 2rem;
   border-radius: 20px;
   max-width: 500px;
@@ -213,6 +260,7 @@ nav {
   opacity: 0;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
               opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-left: 4px solid var(--accent);
 }
 
 .modal.active .modal-content {
@@ -226,7 +274,8 @@ nav {
   pointer-events: none;
   width: 10px;
   height: 10px;
-  background: rgba(96, 165, 250, 0.3);
+  background: linear-gradient(45deg, rgba(9, 132, 227, 0.3), rgba(0, 184, 148, 0.3));
+  backdrop-filter: blur(8px);
   animation: float 3s ease-out forwards;
   z-index: 2001;
 }
@@ -302,7 +351,7 @@ footer p {
   margin-top: 1rem;
 }
 </style>
-<script type="text/javascript" nonce="9d9de267ad29402dbfd4b3df21c" src="//local.adguard.org?ts=1732551823286&amp;type=content-script&amp;dmn=party.websim.ai&amp;url=https%3A%2F%2Fparty.websim.ai%2Fapi%2Fv1%2Fsites%2F4S4Node1CdxdsftOT%2Fhtml&amp;app=com.android.chrome&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=0"></script><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="text/javascript" nonce="9d9de267ad29402dbfd4b3df21c" src="//local.adguard.org?ts=1732551823286&amp;type=content-script&amp;dmn=party.websim.ai&amp;url=https%3A%2F%2Fparty.websim.ai%2Fapi%2Fv1%2Fsites%2FXoSSUS8cME6SOJq7J%2Fhtml&amp;app=com.android.chrome&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=0"></script><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
