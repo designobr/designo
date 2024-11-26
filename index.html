@@ -288,16 +288,46 @@ nav {
   width: 90%;
   margin: auto;
   position: relative;
-  transform: scale(0.8);
-  opacity: 0;
+  transform: scale(1);
+  opacity: 1;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
               opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border-left: 4px solid var(--accent);
 }
 
-.modal.active .modal-content {
-  transform: scale(1);
-  opacity: 1;
+.modal-content ul {
+  list-style-position: inside;
+  padding: 1rem 0;
+  margin: 0 0 1rem 1rem;
+}
+
+.modal-content li {
+  margin-bottom: 0.5rem;
+  color: var(--gray);
+}
+
+.modal-content .close-modal {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--gray);
+  padding: 0.5rem;
+  line-height: 0.8;
+}
+
+.modal-content h3 {
+  margin-bottom: 1rem;
+  color: var(--primary);
+  font-size: 1.8rem;
+}
+
+.modal-content p {
+  color: var(--gray);
+  margin-bottom: 1rem;
 }
 
 /* Floating Squares */
@@ -361,13 +391,6 @@ footer h3 {
   margin-bottom: 1rem;
 }
 
-footer h4 {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--primary);
-  margin-bottom: 0.5rem;
-}
-
 footer p {
   color: var(--gray);
   margin-bottom: 1rem;
@@ -384,7 +407,7 @@ footer p {
   margin: 0; /* Remove any margins if they exist */
 }
 </style>
-<script type="text/javascript" nonce="9d9de267ad29402dbfd4b3df21c" src="//local.adguard.org?ts=1732551823286&amp;type=content-script&amp;dmn=party.websim.ai&amp;url=https%3A%2F%2Fparty.websim.ai%2Fapi%2Fv1%2Fsites%2F4zX0MJrdPnNpdv1VR%2Fhtml&amp;app=com.android.chrome&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=0"></script><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="text/javascript" nonce="9d9de267ad29402dbfd4b3df21c" src="//local.adguard.org?ts=1732551823286&amp;type=content-script&amp;dmn=party.websim.ai&amp;url=https%3A%2F%2Fparty.websim.ai%2Fapi%2Fv1%2Fsites%2FPIenANLms1y448Pj8%2Fhtml&amp;app=com.android.chrome&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=0"></script><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
@@ -445,7 +468,12 @@ footer p {
       <button class="close-modal">&times;</button>
       <h3>Gestão de Redes Sociais</h3>
       <p>Nossa gestão profissional de redes sociais vai muito além de apenas postar conteúdo. Desenvolvemos uma estratégia personalizada que inclui:</p>
-      <ul></ul>
+      <ul>
+        <li>Planejamento estratégico de conteúdo</li>
+        <li>Criação de posts engajadores</li>
+        <li>Gestão de comunidade</li>
+        <li>Relatórios mensais de performance</li>
+      </ul>
       <div style="display: flex; justify-content: center;">
         <a href="https://wa.me/5511947968158" class="cta-button" style="background: #25D366;">WhatsApp</a>
       </div>
@@ -457,7 +485,12 @@ footer p {
       <button class="close-modal">&times;</button>
       <h3>Tráfego Pago</h3>
       <p>Maximize seu ROI com nossas campanhas de tráfego pago estrategicamente otimizadas:</p>
-      <ul></ul>
+      <ul>
+        <li>Configuração de campanhas</li>
+        <li>Otimização contínua</li>
+        <li>Análise de dados</li>
+        <li>Relatórios de performance</li>
+      </ul>
       <div style="display: flex; justify-content: center;">
         <a href="https://wa.me/5511947968158" class="cta-button" style="background: #25D366;">WhatsApp</a>
       </div>
@@ -469,7 +502,12 @@ footer p {
       <button class="close-modal">&times;</button>
       <h3>SEO</h3>
       <p>Aumente sua visibilidade orgânica e autoridade online com nossa estratégia completa de SEO:</p>
-      <ul></ul>
+      <ul>
+        <li>Otimização on-page</li>
+        <li>Construção de links</li>
+        <li>Análise de palavras-chave</li>
+        <li>Monitoramento de rankings</li>
+      </ul>
       <div style="display: flex; justify-content: center;">
         <a href="https://wa.me/5511947968158" class="cta-button" style="background: #25D366;">WhatsApp</a>
       </div>
@@ -481,7 +519,12 @@ footer p {
       <button class="close-modal">&times;</button>
       <h3>Design Gráfico</h3>
       <p>Transforme sua identidade visual com designs profissionais e impactantes:</p>
-      <ul></ul>
+      <ul>
+        <li>Identidade visual</li>
+        <li>Posts para redes sociais</li>
+        <li>Material impresso</li>
+        <li>Apresentações</li>
+      </ul>
       <div style="display: flex; justify-content: center;">
         <a href="https://wa.me/5511947968158" class="cta-button" style="background: #25D366;">WhatsApp</a>
       </div>
@@ -492,11 +535,7 @@ footer p {
     <div class="container">
       <div>
         <h3>Designo</h3>
-        <p>Transformando sua presença digital</p>
-      </div>
-      <div>
-        <h4>Contato</h4>
-        <p>WhatsApp: (11) 94796-8158</p>
+        <p>Marketing Digital</p>
         <div class="social-links">
           <a href="https://www.instagram.com/designobr" class="cta-button">Instagram</a>
         </div>
@@ -507,17 +546,12 @@ footer p {
   <script>
     const translations = {
       pt: {
-        // Navigation
         home: "Home",
         about: "Sobre",
         services: "Serviços",
-        
-        // Hero Section
         title: "A Nova Era do Marketing Digital",
         subtitle: "Soluções de marketing digital personalizadas para impulsionar seu negócio ao próximo nível",
         scheduleButton: "Agende uma Reunião",
-        
-        // Services Section
         ourServices: "Nossos Serviços",
         socialMedia: "Gestão de Redes Sociais",
         socialMediaDesc: "Criamos e gerenciamos conteúdo relevante para suas redes sociais.",
@@ -527,8 +561,6 @@ footer p {
         seoDesc: "Otimização para motores de busca e aumento de tráfego orgânico.",
         design: "Design Gráfico",
         designDesc: "Criação de materiais visuais impactantes para sua marca.",
-        
-        // Modal Content
         socialModalTitle: "Gestão de Redes Sociais",
         socialModalDesc: "Nossa gestão profissional de redes sociais vai muito além de apenas postar conteúdo. Desenvolvemos uma estratégia personalizada que inclui:",
         trafficModalTitle: "Tráfego Pago",
@@ -537,55 +569,41 @@ footer p {
         seoModalDesc: "Aumente sua visibilidade orgânica e autoridade online com nossa estratégia completa de SEO:",
         designModalTitle: "Design Gráfico",
         designModalDesc: "Transforme sua identidade visual com designs profissionais e impactantes:",
-        
-        // Social Media Modal List Items
+        footerTitle: "Designo",
+        footerSubtitle: "Marketing Digital",
+        footerInstagram: "Instagram",
         socialList: [
           "Planejamento estratégico de conteúdo",
-          "Criação de conteúdo envolvente e relevante", 
-          "Gestão de comunidade e engajamento",
-          "Análise de métricas e resultados",
+          "Criação de posts engajadores",
+          "Gestão de comunidade",
           "Relatórios mensais de performance"
         ],
-
-        // Traffic Modal List Items  
         trafficList: [
-          "Análise detalhada do público-alvo",
-          "Estratégias personalizadas para Google Ads e Meta Ads",
-          "Otimização contínua de campanhas",
-          "Monitoramento de conversões",
-          "Relatórios detalhados de performance"
+          "Configuração de campanhas",
+          "Otimização contínua",
+          "Análise de dados",
+          "Relatórios de performance"
         ],
-
-        // SEO Modal List Items
         seoList: [
-          "Auditoria técnica completa",
-          "Pesquisa avançada de palavras-chave",
-          "Otimização on-page e off-page",
-          "Criação de conteúdo otimizado",
-          "Construção de backlinks de qualidade"
+          "Otimização on-page",
+          "Construção de links",
+          "Análise de palavras-chave",
+          "Monitoramento de rankings"
         ],
-
-        // Design Modal List Items
         designList: [
-          "Criação de identidade visual",
-          "Design para redes sociais",
-          "Material institucional",
-          "Peças publicitárias", 
-          "Templates personalizados"
+          "Identidade visual",
+          "Posts para redes sociais",
+          "Material impresso",
+          "Apresentações"
         ]
       },
       en: {
-        // Navigation
         home: "Home",
         about: "About",
         services: "Services",
-        
-        // Hero Section
         title: "The New Era of Digital Marketing",
-        subtitle: "Customized digital marketing solutions to take your business to the next level",
+        subtitle: "Customized digital marketing solutions to boost your business to the next level",
         scheduleButton: "Schedule a Meeting",
-        
-        // Services Section
         ourServices: "Our Services",
         socialMedia: "Social Media Management",
         socialMediaDesc: "We create and manage relevant content for your social networks.",
@@ -595,8 +613,6 @@ footer p {
         seoDesc: "Search engine optimization and organic traffic increase.",
         design: "Graphic Design",
         designDesc: "Creation of impactful visual materials for your brand.",
-        
-        // Modal Content
         socialModalTitle: "Social Media Management",
         socialModalDesc: "Our professional social media management goes far beyond just posting content. We develop a personalized strategy that includes:",
         trafficModalTitle: "Paid Traffic",
@@ -605,57 +621,43 @@ footer p {
         seoModalDesc: "Increase your organic visibility and online authority with our complete SEO strategy:",
         designModalTitle: "Graphic Design",
         designModalDesc: "Transform your visual identity with professional and impactful designs:",
-        
-        // Social Media Modal List Items
+        footerTitle: "Designo",
+        footerSubtitle: "Digital Marketing",
+        footerInstagram: "Instagram",
         socialList: [
           "Strategic content planning",
-          "Engaging and relevant content creation",
-          "Community management and engagement",
-          "Metrics and results analysis",
+          "Engaging post creation",
+          "Community management",
           "Monthly performance reports"
         ],
-
-        // Traffic Modal List Items
         trafficList: [
-          "Detailed target audience analysis",
-          "Customized strategies for Google Ads and Meta Ads",
-          "Continuous campaign optimization",
-          "Conversion tracking",
-          "Detailed performance reports"
+          "Campaign setup",
+          "Continuous optimization",
+          "Data analysis",
+          "Performance reports"
         ],
-
-        // SEO Modal List Items
         seoList: [
-          "Complete technical audit",
-          "Advanced keyword research",
-          "On-page and off-page optimization",
-          "Optimized content creation",
-          "Quality backlink building"
+          "On-page optimization",
+          "Link building",
+          "Keyword analysis",
+          "Rank monitoring"
         ],
-
-        // Design Modal List Items
         designList: [
-          "Visual identity creation",
-          "Social media design",
-          "Corporate materials",
-          "Advertising pieces",
-          "Custom templates"
+          "Visual identity",
+          "Social media posts",
+          "Print material",
+          "Presentations"
         ]
       },
       es: {
-        // Navigation
         home: "Inicio",
         about: "Sobre",
         services: "Servicios",
-        
-        // Hero Section
         title: "La Nueva Era del Marketing Digital",
         subtitle: "Soluciones de marketing digital personalizadas para impulsar su negocio al siguiente nivel",
-        scheduleButton: "Agendar una Reunión",
-        
-        // Services Section
+        scheduleButton: "Programar una Reunión",
         ourServices: "Nuestros Servicios",
-        socialMedia: "Gestión de Redes Sociais",
+        socialMedia: "Gestión de Redes Sociales",
         socialMediaDesc: "Creamos y gestionamos contenido relevante para sus redes sociales.",
         paidTraffic: "Tráfico Pago",
         paidTrafficDesc: "Campañas optimizadas para Google Ads y redes sociales.",
@@ -663,8 +665,6 @@ footer p {
         seoDesc: "Optimización para motores de búsqueda y aumento de tráfico orgánico.",
         design: "Diseño Gráfico",
         designDesc: "Creación de materiales visuales impactantes para su marca.",
-        
-        // Modal Content
         socialModalTitle: "Gestión de Redes Sociales",
         socialModalDesc: "Nuestra gestión profesional de redes sociales va mucho más allá de solo publicar contenido. Desarrollamos una estrategia personalizada que incluye:",
         trafficModalTitle: "Tráfico Pago",
@@ -673,44 +673,68 @@ footer p {
         seoModalDesc: "Aumente su visibilidad orgánica y autoridad en línea con nuestra estrategia completa de SEO:",
         designModalTitle: "Diseño Gráfico",
         designModalDesc: "Transforme su identidad visual con diseños profesionales e impactantes:",
-        
-        // Social Media Modal List Items
+        footerTitle: "Designo",
+        footerSubtitle: "Marketing Digital",
+        footerInstagram: "Instagram",
         socialList: [
           "Planificación estratégica de contenido",
-          "Creación de contenido atractivo y relevante",
-          "Gestión de comunidad y engagement",
-          "Análisis de métricas y resultados",
+          "Creación de posts atractivos",
+          "Gestión de comunidad",
           "Informes mensuales de rendimiento"
         ],
-
-        // Traffic Modal List Items
         trafficList: [
-          "Análisis detallado del público objetivo",
-          "Estrategias personalizadas para Google Ads y Meta Ads",
-          "Optimización continua de campañas",
-          "Seguimiento de conversiones",
-          "Informes detallados de rendimiento"
+          "Configuración de campañas",
+          "Optimización continua",
+          "Análisis de datos",
+          "Informes de rendimiento"
         ],
-
-        // SEO Modal List Items
         seoList: [
-          "Auditoría técnica completa",
-          "Investigación avanzada de palabras clave",
-          "Optimización on-page y off-page",
-          "Creación de contenido optimizado",
-          "Construcción de backlinks de calidad"
+          "Optimización on-page",
+          "Construcción de enlaces",
+          "Análisis de palabras clave",
+          "Monitoreo de rankings"
         ],
-
-        // Design Modal List Items
         designList: [
-          "Creación de identidad visual",
-          "Diseño para redes sociales",
-          "Material corporativo",
-          "Piezas publicitarias",
-          "Plantillas personalizadas"
+          "Identidad visual",
+          "Posts para redes sociales",
+          "Material impreso",
+          "Presentaciones"
         ]
       }
     };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize modal lists on page load
+      const modalIds = ['socialModal', 'trafficModal', 'seoModal', 'designModal'];
+      const currentLang = document.getElementById('languageSelect').value;
+
+      modalIds.forEach(modalId => {
+        const modal = document.getElementById(modalId);
+        if (!modal) return;
+        
+        const listContainer = modal.querySelector('ul');
+        if (!listContainer) return;
+        
+        const serviceType = modalId.replace('Modal', '');
+        const listItems = translations[currentLang][`${serviceType}List`];
+        
+        if (listItems && Array.isArray(listItems)) {
+          listContainer.innerHTML = listItems
+            .map(item => `<li>${item}</li>`)
+            .join('');
+        }
+      });
+
+      // Check for stored language preference
+      const storedLang = localStorage.getItem('preferredLanguage');
+      if (storedLang) {
+        const languageSelect = document.getElementById('languageSelect');
+        if (languageSelect) {
+          languageSelect.value = storedLang;
+          languageSelect.dispatchEvent(new Event('change'));
+        }
+      }
+    });
 
     document.getElementById('languageSelect').addEventListener('change', (e) => {
       const lang = e.target.value;
@@ -764,19 +788,13 @@ footer p {
         .map(item => `<li>${item}</li>`)
         .join('');
       
+      // Update footer content (only existing elements)
+      document.querySelector('footer h3').textContent = translations[lang].footerTitle;
+      document.querySelector('footer p:first-of-type').textContent = translations[lang].footerSubtitle;
+      document.querySelector('.social-links .cta-button').textContent = translations[lang].footerInstagram;
+      
       // Store the selected language preference
       localStorage.setItem('preferredLanguage', lang);
-    });
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const storedLang = localStorage.getItem('preferredLanguage');
-      if (storedLang) {
-        const languageSelect = document.getElementById('languageSelect');
-        if (languageSelect) {
-          languageSelect.value = storedLang;
-          languageSelect.dispatchEvent(new Event('change'));
-        }
-      }
     });
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
