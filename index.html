@@ -17,12 +17,12 @@
   --gradient-2: linear-gradient(45deg, #6c5ce7, #0984e3);
   
   /* Light theme (default) */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8faff;
+  --bg-primary: linear-gradient(135deg, #e6f3ff, #ffffff);
+  --bg-secondary: linear-gradient(135deg, #f0f8ff, #ffffff);
   --text-primary: #2d3436;
   --text-secondary: #636e72;
   --card-bg: #ffffff;
-  --header-bg: rgba(255, 255, 255, 0.98);
+  --header-bg: rgba(255, 255, 255, 0.95);
 }
 
 * {
@@ -35,7 +35,7 @@ body {
   font-family: 'Inter', sans-serif;
   line-height: 1.6;
   color: var(--text-primary);
-  background-color: var(--bg-primary);
+  background: linear-gradient(135deg, #e6f3ff, #ffffff);
   transition: background-color 0.3s, color 0.3s;
 }
 
@@ -167,7 +167,7 @@ nav {
 /* Services Section */
 .services {
   padding: 120px 0;
-  background: var(--bg-secondary);
+  background: linear-gradient(135deg, #f0f8ff, #ffffff);
 }
 
 .services h2 {
@@ -330,27 +330,78 @@ nav {
   margin-bottom: 1rem;
 }
 
-/* Floating Squares */
-.floating-square {
-  position: fixed;
-  pointer-events: none;
-  width: 10px;
-  height: 10px;
-  background: linear-gradient(45deg, rgba(9, 132, 227, 0.3), rgba(0, 184, 148, 0.3));
-  backdrop-filter: blur(8px);
-  animation: float 3s ease-out forwards;
-  z-index: 2001;
+/* Testimonials Section */
+.testimonials {
+  padding: 120px 0;
+  background: var(--bg-secondary);
 }
 
-@keyframes float {
-  0% {
-    transform: translate(0, 0) rotate(0deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(var(--moveX), var(--moveY)) rotate(360deg);
-    opacity: 0;
-  }
+.testimonials h2 {
+  text-align: center;
+  margin-bottom: 4rem;
+  font-size: 3.5rem;
+  letter-spacing: -1px;
+  font-weight: 800;
+  background: var(--gradient-2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.testimonial-card {
+  padding: 3rem;
+  border-radius: 20px;
+  background: var(--card-bg);
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.quote {
+  font-size: 4rem;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  opacity: 0.1;
+  font-family: Georgia, serif;
+  color: var(--accent);
+}
+
+.testimonial-text {
+  color: var(--gray);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-author {
+  border-top: 1px solid rgba(0,0,0,0.1);
+  padding-top: 1.5rem;
+}
+
+.author-name {
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.2rem;
+}
+
+.author-company {
+  color: var(--accent);
+  font-size: 0.9rem;
 }
 
 @media (max-width: 768px) {
@@ -369,6 +420,10 @@ nav {
   .services h2 {
     font-size: 2.8rem;
   }
+
+  .testimonials h2 {
+    font-size: 2.8rem;
+  }
 }
 
 /* Update the CTA button styles in the modal */
@@ -381,7 +436,7 @@ nav {
 /* Updated footer styles */
 footer {
   padding: 3rem 0;
-  background: var(--bg-secondary);
+  background: linear-gradient(135deg, #f0f8ff, #ffffff);
 }
 
 footer h3 {
@@ -407,7 +462,7 @@ footer p {
   margin: 0; /* Remove any margins if they exist */
 }
 </style>
-<script type="text/javascript" nonce="9d9de267ad29402dbfd4b3df21c" src="//local.adguard.org?ts=1732551823286&amp;type=content-script&amp;dmn=party.websim.ai&amp;url=https%3A%2F%2Fparty.websim.ai%2Fapi%2Fv1%2Fsites%2FPIenANLms1y448Pj8%2Fhtml&amp;app=com.android.chrome&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=0"></script><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="text/javascript" nonce="cb784e337ee54aadba17876a2fc" src="//local.adguard.org?ts=1732835845452&amp;type=content-script&amp;dmn=party.websim.ai&amp;url=https%3A%2F%2Fparty.websim.ai%2Fapi%2Fv1%2Fsites%2FyGrGt5Lz8nvksth4d%2Fhtml&amp;app=com.android.chrome&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=0"></script><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
@@ -457,6 +512,39 @@ footer p {
         <div class="service-card" data-service="design">
           <h3>Design Gráfico</h3>
           <p>Criação de materiais visuais impactantes para sua marca.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <div class="container">
+      <h2>O Que Nossos Clientes Dizem</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="quote">"</div>
+          <p class="testimonial-text">A Designo transformou completamente nossa presença digital. Os resultados superaram todas as expectativas!</p>
+          <div class="testimonial-author">
+            <div class="author-name">Ana Silva</div>
+            <div class="author-company">Fashion Store</div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote">"</div>
+          <p class="testimonial-text">Profissionalismo e criatividade excepcionais. Nossa empresa cresceu 200% em 6 meses!</p>
+          <div class="testimonial-author">
+            <div class="author-name">Carlos Santos</div>
+            <div class="author-company">Tech Solutions</div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote">"</div>
+          <p class="testimonial-text">Equipe incrível e super atenciosa. O retorno sobre o investimento foi impressionante.</p>
+          <div class="testimonial-author">
+            <div class="author-name">Marina Costa</div>
+            <div class="author-company">Bella Café</div>
+          </div>
         </div>
       </div>
     </div>
@@ -549,6 +637,7 @@ footer p {
         home: "Home",
         about: "Sobre",
         services: "Serviços",
+        testimonials: "O Que Nossos Clientes Dizem",
         title: "A Nova Era do Marketing Digital",
         subtitle: "Soluções de marketing digital personalizadas para impulsionar seu negócio ao próximo nível",
         scheduleButton: "Agende uma Reunião",
@@ -601,6 +690,7 @@ footer p {
         home: "Home",
         about: "About",
         services: "Services",
+        testimonials: "What Our Clients Say",
         title: "The New Era of Digital Marketing",
         subtitle: "Customized digital marketing solutions to boost your business to the next level",
         scheduleButton: "Schedule a Meeting",
@@ -653,6 +743,7 @@ footer p {
         home: "Inicio",
         about: "Sobre",
         services: "Servicios",
+        testimonials: "Lo Que Dicen Nuestros Clientes",
         title: "La Nueva Era del Marketing Digital",
         subtitle: "Soluciones de marketing digital personalizadas para impulsar su negocio al siguiente nivel",
         scheduleButton: "Programar una Reunión",
@@ -751,6 +842,9 @@ footer p {
       
       // Update services section
       document.querySelector('.services h2').textContent = translations[lang].ourServices;
+      
+      // Update testimonials section
+      document.querySelector('.testimonials h2').textContent = translations[lang].testimonials;
       
       // Update service cards
       const cards = document.querySelectorAll('.service-card');
