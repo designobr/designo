@@ -1,0 +1,14 @@
+empresa,segmento,cidade,email,fonte_email,verificacao,status,data_envio,proxima_acao,observacao
+CHV Centro Hospitalar Veterinário,clínica veterinária,Porto,info@chv.pt,portaldaqueixa.com,fonte única (diretório) + telefone e morada coerentes,enviado,2026-11-22,follow-up em 3 dias se sem resposta,Oferta de conteúdo para clínica veterinária
+Clínica Veterinária Monte de Burgos,clínica veterinária,Porto,geral@clivetmontesburgos.com,occ.pt,fonte única (diretório oficial da OCC),enviado,2026-11-22,follow-up em 3 dias se sem resposta,Oferta de conteúdo para clínica veterinária
+Bichomix Hospital Veterinário,clínica veterinária,Lisboa,geral@bichomix.pt,portaldaqueixa.com,fonte única (diretório) + telefone coerente,enviado,2026-11-22,follow-up em 3 dias se sem resposta,Oferta de conteúdo para clínica veterinária
+1970 Viagens e Turismo,agência de viagens,Porto,reservas@1970viagens.pt,visitportugal.com,fonte única (diretório) + telefone e morada coerentes,enviado,2026-11-22,follow-up em 3 dias se sem resposta,Oferta de conteúdo para agência de viagens
+Hospital Veterinário do Porto,clínica veterinária,Porto,hvp@onevetgroup.pt,portaldaqueixa.com,grupo Onevet; domínio não confirmado,pendente,,verificar domínio oficial,Grupo grande; baixa prioridade
+Hospital Veterinário de São Bento,clínica veterinária,Lisboa,info@veterinario.pt,portaldaqueixa.com,fonte única; domínio a confirmar,pendente,,verificar domínio oficial,
+Esporão No Porto,restaurante,Porto,esporaonoporto@esporao.com,visitportugal/thefork,negócio consolidado,pendente,,avaliar fit,Baixo fit comercial
+Engel & Völkers Minho,imobiliária,Braga,Minho@engelvoelkers.com,engelvoelkers.com,franquia internacional,excluido,,,Grande porte
+Anicura Vasco da Gama,clínica veterinária,Lisboa,geral.vascodagama@anicura.pt,portaldaqueixa.com,grupo grande,excluido,,,Grande porte
+UPVet (Univ. Porto),clínica veterinária,Porto,upvet@icbas.up.pt,portaldaqueixa.com,instituição pública,excluido,,,Não é alvo comercial
+Hospital Referência Veterinária Montenegro,clínica veterinária,Porto,referenciahospvetmontenegro@gmail.com,portaldaqueixa.com,só Gmail sem canal oficial,excluido,,,
+Clínica Veterinária de Telheiras,clínica veterinária,Lisboa,cvtelheiras@gmail.com,portaldaqueixa.com,só Gmail sem canal oficial,excluido,,,
+Aquário Marisqueiro,restaurante,Porto,aquario.marisqueiro@gmail.com,visitportugal.com,só Gmail sem canal oficial,excluido,,,
