@@ -268,7 +268,7 @@
     position: relative;
     min-height: 100vh;
     min-height: 100svh;
-    padding: 170px 0 90px;
+    padding: 150px 0 40px;
     display: flex;
     align-items: center;
     text-align: center;
@@ -353,24 +353,26 @@
   }
 
   .hero-visual {
+    --cw: 190px;
+    --ch: 230px;
+    --k: 1;
     position: relative;
-    width: min(100%, 560px);
-    height: clamp(260px, 34vw, 400px);
-    margin: 70px auto 0;
-    will-change: transform;
+    width: min(100%, 760px);
+    height: clamp(320px, 36vw, 400px);
+    margin: 16px auto 0;
+    perspective: 1400px;
+    animation: fadeIn 1.6s var(--ease) 0.5s both;
   }
 
-  .hero-visual::before {
+  .hero-visual::after {
     content: '';
     position: absolute;
-    inset: 8% 14%;
-    border-radius: 50%;
-    background: radial-gradient(closest-side, rgba(0, 128, 248, 0.28), rgba(0, 128, 248, 0));
-    filter: blur(12px);
-  }
-
-  .hero-visual {
-    animation: fadeIn 1.6s var(--ease) 0.5s both;
+    left: 22%;
+    right: 22%;
+    bottom: -10px;
+    height: 36px;
+    background: radial-gradient(closest-side, rgba(0, 128, 248, 0.22), rgba(0, 128, 248, 0));
+    filter: blur(6px);
   }
 
   @keyframes fadeIn {
@@ -378,45 +380,80 @@
     to { opacity: 1; filter: none; }
   }
 
-  .mark {
+  .ring-tilt {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    transform: rotateX(-6deg);
+    will-change: transform;
+  }
+
+  .ring {
     position: absolute;
     left: 50%;
     top: 50%;
-    width: clamp(170px, 22vw, 260px);
-    transform: translate(-50%, -50%);
-    filter: drop-shadow(0 30px 60px rgba(0, 128, 248, 0.35));
-    animation: float 9s ease-in-out infinite;
+    width: 0;
+    height: 0;
+    transform-style: preserve-3d;
   }
 
-  @keyframes float {
-    0%, 100% { transform: translate(-50%, -50%) translateY(0); }
-    50% { transform: translate(-50%, -50%) translateY(-14px); }
-  }
-
-  .chip {
+  .ring-card {
     position: absolute;
-    padding: 10px 18px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.72);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    left: calc(var(--cw) / -2);
+    top: calc(var(--ch) / -2);
+    width: var(--cw);
+    height: var(--ch);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 22px;
+    border-radius: 24px;
+    text-align: left;
+    background: linear-gradient(160deg, #ffffff 0%, #EEF7FF 100%);
     border: 1px solid rgba(255, 255, 255, 0.95);
-    box-shadow: 0 14px 40px -18px rgba(11, 27, 43, 0.28);
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--ink);
-    white-space: nowrap;
-    animation: bob 7s ease-in-out infinite;
+    box-shadow: 0 34px 60px -30px rgba(3, 85, 184, 0.45), inset 0 1px 0 #fff;
+    transform: translate3d(calc(var(--x) * var(--k)), 0, var(--z)) rotateY(var(--r));
+    transition: transform 0.9s var(--ease);
+    backface-visibility: hidden;
   }
 
-  .chip-1 { left: 0; top: 16%; }
-  .chip-2 { right: 0; top: 4%; animation-delay: -2s; }
-  .chip-3 { left: 6%; bottom: 6%; animation-delay: -4s; }
-  .chip-4 { right: 4%; bottom: 14%; animation-delay: -6s; }
+  .ring-card:hover {
+    transform: translate3d(calc(var(--x) * var(--k)), -10px, calc(var(--z) + 30px)) rotateY(var(--r));
+  }
 
-  @keyframes bob {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+  .ring-card .num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--blue);
+  }
+
+  .ring-card .icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, var(--blue), var(--sky));
+    box-shadow: 0 12px 24px -10px rgba(0, 128, 248, 0.6);
+  }
+
+  .ring-card svg {
+    width: 26px;
+    height: 26px;
+    fill: none;
+    stroke: #fff;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .ring-card strong {
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--ink);
   }
 
   /* Typography helpers */
@@ -758,8 +795,11 @@
       border-top: 0;
       border-bottom: 1px solid var(--line);
     }
-    .chip { font-size: 0.8rem; padding: 8px 14px; }
-    .chip-4 { display: none; }
+    .hero-visual { --cw: 128px; --ch: 160px; --k: 0.35; }
+    .ring-card { padding: 16px; border-radius: 20px; }
+    .ring-card .icon { width: 44px; height: 44px; }
+    .ring-card svg { width: 22px; height: 22px; }
+    .ring-card strong { font-size: 0.92rem; }
     .glow-a, .glow-b { opacity: 0.55; }
     .about, .band { padding-top: 110px; padding-bottom: 120px; }
     .services { padding-bottom: 110px; }
@@ -826,12 +866,31 @@
           </a>
         </div>
 
-        <div class="hero-visual" id="heroVisual">
-          <img class="mark" src="assets/mark-blue.png" alt="" aria-hidden="true">
-          <span class="chip chip-1" data-i18n="chips.0">Estratégia</span>
-          <span class="chip chip-2" data-i18n="chips.1">Conteúdo</span>
-          <span class="chip chip-3" data-i18n="chips.2">Tráfego</span>
-          <span class="chip chip-4" data-i18n="chips.3">Design</span>
+        <div class="hero-visual" id="heroVisual" aria-hidden="true">
+          <div class="ring-tilt" id="ringTilt">
+            <div class="ring">
+              <div class="ring-card" style="--x: -250px; --z: -40px; --r: 24deg">
+                <span class="num">01</span>
+                <span class="icon"><svg viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="3"/><path d="M12 16.2l-2.1-1.9c-1.2-1.1-1.9-1.7-1.9-2.6 0-.9.7-1.6 1.6-1.6.5 0 1 .3 1.4.7.4-.4.9-.7 1.4-.7.9 0 1.6.7 1.6 1.6 0 .9-.7 1.5-1.9 2.6z"/></svg></span>
+                <strong data-i18n="ring.0">Redes Sociais</strong>
+              </div>
+              <div class="ring-card" style="--x: -85px; --z: 40px; --r: 10deg">
+                <span class="num">02</span>
+                <span class="icon"><svg viewBox="0 0 24 24"><path d="M4 20V14M10 20V9M16 20V12M22 20V4"/></svg></span>
+                <strong data-i18n="ring.1">Tráfego Pago</strong>
+              </div>
+              <div class="ring-card" style="--x: 85px; --z: 40px; --r: -10deg">
+                <span class="num">03</span>
+                <span class="icon"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5M7.5 11.5l2-2 1.5 1.5 2.5-3"/></svg></span>
+                <strong data-i18n="ring.2">SEO</strong>
+              </div>
+              <div class="ring-card" style="--x: 250px; --z: -40px; --r: -24deg">
+                <span class="num">04</span>
+                <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0 0 18c1.2 0 1.8-.8 1.8-1.7 0-1.1-.9-1.5-.9-2.4 0-.9.7-1.6 1.6-1.6H17a4 4 0 0 0 4-4C21 6.7 17 3 12 3z"/><circle cx="7.5" cy="10" r="1"/><circle cx="10.5" cy="6.8" r="1"/><circle cx="15" cy="7.2" r="1"/></svg></span>
+                <strong data-i18n="ring.3">Design</strong>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -947,7 +1006,7 @@
           cta: 'Agende uma reunião',
           secondary: 'Conheça os serviços'
         },
-        chips: ['Estratégia', 'Conteúdo', 'Tráfego', 'Design'],
+        ring: ['Redes Sociais', 'Tráfego Pago', 'SEO', 'Design'],
         about: {
           title: 'Desenhado para ajudar você a crescer <em>com clareza</em> e menos esforço',
           text: 'A Designo é uma agência de marketing digital para empresas que querem presença forte nas redes, resultados que dá para acompanhar e um processo claro do primeiro contato até a entrega.'
@@ -1004,7 +1063,7 @@
           cta: 'Schedule a meeting',
           secondary: 'See our services'
         },
-        chips: ['Strategy', 'Content', 'Traffic', 'Design'],
+        ring: ['Social Media', 'Paid Traffic', 'SEO', 'Design'],
         about: {
           title: 'Built to help you grow <em>with clarity</em> and less effort',
           text: 'Designo is a digital marketing agency for companies that want a strong social presence, results you can track and a clear process from first contact to delivery.'
@@ -1061,7 +1120,7 @@
           cta: 'Programar una reunión',
           secondary: 'Conozca nuestros servicios'
         },
-        chips: ['Estrategia', 'Contenido', 'Tráfico', 'Diseño'],
+        ring: ['Redes Sociales', 'Tráfico Pago', 'SEO', 'Diseño'],
         about: {
           title: 'Diseñado para ayudarle a crecer <em>con claridad</em> y menos esfuerzo',
           text: 'Designo es una agencia de marketing digital para empresas que quieren una presencia fuerte en redes, resultados que se pueden medir y un proceso claro desde el primer contacto hasta la entrega.'
@@ -1217,6 +1276,7 @@
     const header = document.getElementById('header');
     const bar = document.getElementById('progress');
     const heroVisual = document.getElementById('heroVisual');
+    const ringTilt = document.getElementById('ringTilt');
     const heroInner = document.getElementById('heroInner');
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let ticking = false;
@@ -1231,6 +1291,7 @@
       if (!reduceMotion) {
         const limit = Math.min(y, 900);
         heroVisual.style.transform = `translate3d(0, ${limit * 0.12}px, 0)`;
+        ringTilt.style.transform = `rotateX(-6deg) rotateY(${limit * 0.03}deg)`;
         heroInner.style.opacity = String(Math.max(0, 1 - y / 700));
       }
 
